@@ -37,10 +37,10 @@ const search = ({
     // check if 'title' contains user input (keyword)
     if (keys.indexOf('title')) {
       var keywords = document.getElementById('keyword').value;
-      var flag = false;
+      var flag = new Boolean(0);
       keywords.forEach(e => {
         if (!element.title.indexOf(e)) {
-          flag = true;
+          flag = new Boolean(true);
           break;
         }
       });
