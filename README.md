@@ -1,1 +1,8 @@
-# Hatathon_Chrome_History_Search
+### Visitory
+
+# Contributors:
+Eric Choi
+Hojin Park
+Jihyun An
+Jaehyung Won
+
