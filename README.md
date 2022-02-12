@@ -1,6 +1,6 @@
-### Visitory
+# Visitory
 
-# Contributors:
+### Contributors:
 
 Eric Choi
 
