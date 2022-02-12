@@ -27,26 +27,26 @@ const search = ({
     // step 2: WHERE
     // check if 'url' contains user input (where)
     if (keys.indexOf('url')) {
-      var url = element.url.split(/&|\?/);
-      if (!url[0].indexOf(document.getElementById('where').value))
-        continue; // 'where' not found
+      // var url = element.url.split(/&|\?/);
+      // if (!url[0].indexOf(document.getElementById('where').value))
+      //   continue; // 'where' not found
     } else
       continue;
 
     // step 3: KEYWORD
     // check if 'title' contains user input (keyword)
     if (keys.indexOf('title')) {
-      var keywords = document.getElementById('keyword').value;
-      var flag = new Boolean(0);
-      keywords.forEach(e => {
-        if (!element.title.indexOf(e)) {
-          flag = new Boolean(true);
-          break;
-        }
-      });
+      // var keywords = document.getElementById('keyword').value;
+      // var flag = new Boolean(0);
+      // keywords.forEach(e => {
+      //   if (!element.title.indexOf(e)) {
+      //     flag = new Boolean(true);
+      //     break;
+      //   }
+      // });
 
-      if (flag)
-        continue;
+      // if (flag)
+      //   continue;
     } else
       continue;
 
