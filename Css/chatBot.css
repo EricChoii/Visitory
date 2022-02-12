@@ -18,7 +18,7 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 10px;
-  background: url(../gfx/logo.png) #333333;
+  background: url(../uw-crest-web.png) #494747;
   background-position: center;
   background-repeat: no-repeat;
   background-origin: content-box;
@@ -87,7 +87,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background: #1a73e8;
+  background: #c5050c;
   margin-bottom: 0px;
   color: white;
   text-align: center;
@@ -103,6 +103,7 @@
           justify-content: flex-start;
   padding: 0;
   background: rgba(26, 115, 232, 0) !important;
+
   margin-bottom: 5px;
   line-height: 14px;
 }
@@ -112,7 +113,7 @@
   height: 0px;
   margin: 0 0;
   opacity: 0;
-  background-color: #1a73e8;
+  background-color: #c5050c;
   -webkit-transition-duration: 0.5s;
           transition-duration: 0.5s;
 }
@@ -143,7 +144,7 @@
       -ms-flex-pack: end;
           justify-content: flex-end;
   margin: 0;
-  background: rgba(0, 0, 0, 0.75);
+  background: #282728;
   -webkit-transition-duration: 0.5s;
           transition-duration: 0.5s;
   font-size: 14px;
@@ -186,8 +187,8 @@
   height: auto;
   padding: 4px 10px;
   border-radius: 13px 13px 13px 5px;
-  background: #1a73e8;
-  color: white;
+  background: #494747;
+  color: rgb(255, 255, 255);
 }
 
 .chatBot .chatBody .chatSession .container .message {
@@ -299,7 +300,7 @@
   border-radius: 5px;
   margin-right: 0px;
   padding: 0px;
-  border: 1px solid #0d3b77;
+  border: 1px solid #c5050c;
   font-size: 12px;
   line-height: 12px;
   -webkit-transition-duration: all 0.2s;
@@ -324,7 +325,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background: #1a73e8;
+  background: #c5050c;
   -webkit-transition: all 0.2s ease-in-out 1s;
   transition: all 0.2s ease-in-out 1s;
 }
@@ -335,7 +336,7 @@
 
 .chatBot .chatForm #chatCloseTrigger {
   width: 100%;
-  background: rgba(0, 0, 0, 0.75);
+  background: #575656;
   margin-top: 5px;
   color: white;
 }

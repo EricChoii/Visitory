@@ -1,57 +1,55 @@
-// Selecting required HTML elements
-var uiDomStyleClass             = document.querySelector( "html head style" )
-var uiChatBot                   = document.querySelector( ".chatBot" )
-var uiChatOpenTrigger           = document.querySelector( ".chatBot .chatBotHeading #chatOpenTrigger" )
-var uiChatSeparater             = document.querySelector( ".chatBot .chatBotHeading+hr" )
-var uiChatBotTextArea           = document.querySelector( ".chatBot .chatForm #chatTextBox" )
-var uiChatBotSendButton         = document.querySelector( ".chatBot .chatForm #sendButton" )
 
-var uiAccentColorPreview        = document.querySelector( "form.stylingController #accentColorInput + .previewColor" )
-var uiBackgroundColorPreview    = document.querySelector( "form.stylingController #backgroundColorInput + .previewColor" )
-
-// Getting settings from customUI.json file
-var requestJson = new XMLHttpRequest()
-var settingsImport
-requestJson.open( 'GET','./Misc/customUI.json' )
-requestJson.onload = function() {
-    settingsImport = JSON.parse( requestJson.responseText )
-    applyCustomSettings( settingsImport )
-}
-requestJson.send()
-
-function applyCustomSettings( settingsImport ){
-    // Accent Controls
-    var accentColor             = settingsImport.accentColor
-    if( accentColor == "" )
-        accentColor             = "#1a73e8"
-
-    // Background Controls
-    var backgroundColor         = settingsImport.backgroundColor
-    if( backgroundColor == "" )
-        backgroundColor         = "#333333"
-
-    // ChatBot Heading Controls
-    var chatBotCustomHeading    = settingsImport.chatBotHeading
-    if( chatBotCustomHeading == "" )
-        chatBotCustomHeading    = "Any Queries? Ask Me!"
-
-    // Chat Initial Message Controls
-    let chatDefaultText         = settingsImport.defaultText
-    if( chatDefaultText == "" )
-        chatDefaultText         = "Hi! I am ChatBot."
-
-    // Seeting accent color on loading page
-    uiAccentColorPreview.style.backgroundColor = accentColor
-    uiChatOpenTrigger.style.backgroundColor = accentColor
-    uiChatSeparater.style.backgroundColor = accentColor    
-    uiDomStyleClass.innerHTML = ".accentColor{ background:"+accentColor+"!important;}"
-    uiChatBotTextArea.style.border = "1px solid "+accentColor
-    uiChatBotSendButton.style.backgroundColor = accentColor
-    // Setting background color on loading page
-    uiBackgroundColorPreview.style.backgroundColor = backgroundColor
-    uiChatBot.style.backgroundColor = backgroundColor
-    // Setting ChatBot Heading
-    uiChatOpenTrigger.innerHTML = chatBotCustomHeading
-    // Setting initial message
-    chatBotInitiateMessage = chatDefaultText
-}
+const search = ({
+    data
+  }) => {
+    var jsn = JSON.parse(data);
+    var res = "[";
+    for (var element of jsn) {
+      var keys = Object.keys(element);
+  
+          // step 1: WHEN
+      // search data within a certain period of time
+      if (keys.indexOf('lastVisitTime')) {
+        // timestamp (front-end) @@@@@
+        // id: when
+        var value = element["lasVisitTime"];
+        if(value<document.getElementById("when")){
+          break;
+        }
+      } else 
+        continue;
+  
+      // step 2: WHERE
+      // check if 'url' contains user input (where)
+      if (keys.indexOf('url')) {
+        // var url = element.url.split(/&|\?/);
+        // if (!url[0].indexOf(document.getElementById('where')))
+        //    continue; // 'where' not found
+      } else
+        continue;
+  
+      // step 3: KEYWORD
+      // check if 'title' contains user input (keyword)
+      if (keys.indexOf('title')) {
+        // var keywords = document.getElementById('key').value;
+        // var flag = new Boolean(0);
+        // keywords.forEach(e => {
+        //   if (!element.title.indexOf(e)) {
+        //     flag = new Boolean(true);
+        //     break;
+        //   }
+        // });
+  
+        if (flag)
+          continue;
+      } else
+        continue;
+  
+      // all pass
+      var comma = ", ";
+      res = res.concat(comma.concat(JSON.stringify(element)));
+    }
+  
+    res = res.concat(']').replace(/^\[,\s*/, "["); // remove first comma
+    document.getElementById("content").innerText = res;
+  };

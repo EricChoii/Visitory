@@ -8,7 +8,6 @@ getLicense(function (license, error) {
 var append = function (text) {
   data.appendChild(document.createTextNode(text));
 };
-
 const search = ({
   data
 }) => {
@@ -19,44 +18,26 @@ const search = ({
 
     // step 1: WHEN
     // search data within a certain period of time
-    if (keys.indexOf('lastVisitTime')) {
-      // timestamp (front-end) @@@@@
-    } else
+    if (!keys.indexOf('lastVisitTime')) 
       continue;
 
     // step 2: WHERE
     // check if 'url' contains user input (where)
-    if (keys.indexOf('url')) {
-      // var url = element.url.split(/&|\?/);
-      // if (!url[0].indexOf(document.getElementById('where').value))
-      //   continue; // 'where' not found
-    } else
+    if (!keys.indexOf('url')) 
       continue;
 
     // step 3: KEYWORD
     // check if 'title' contains user input (keyword)
-    if (keys.indexOf('title')) {
-      // var keywords = document.getElementById('keyword').value;
-      // var flag = new Boolean(0);
-      // keywords.forEach(e => {
-      //   if (!element.title.indexOf(e)) {
-      //     flag = new Boolean(true);
-      //     break;
-      //   }
-      // });
-
-      // if (flag)
-      //   continue;
-    } else
+    if (!keys.indexOf('title')) 
       continue;
 
     // all pass
     var comma = ", ";
     res = res.concat(comma.concat(JSON.stringify(element)));
   }
-
+  //append(res);
   res = res.concat(']').replace(/^\[,\s*/, "["); // remove first comma
-  document.getElementById("content").innerText = res;
+  data2.appendChild(document.createTextNode(res));
 };
 
 var download = function (format) {
@@ -87,8 +68,14 @@ var download = function (format) {
 document.addEventListener("DOMContentLoaded", function () {
   window.data = document.getElementById("data");
   window.jsonButton = document.getElementById("json");
+  window.rejectButton = document.getElementById("reject");
 
   jsonButton.onclick = function () {
     download("json");
   };
+
+  rejectButton.onclick = function() {
+    window.alert("We can not process your data without your consent");
+  };
 });
+
