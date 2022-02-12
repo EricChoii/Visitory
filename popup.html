@@ -1,42 +1,82 @@
 <!doctype html>
 <html>
-  <head>
-    <title>Hatathon</title>
-    <style>
-      body {
-        min-width: 400px;
-      }
 
-      #data{
-        display: none;
-      }
+<head>
+  <title>Hatathon</title>
+  <style>
+    body {
+      min-width: 400px;
+    }
 
-      h3{
-        /*margin-bottom: 0px;*/
-        font-weight: lighter;
-        font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-        color: #777;
-        font-size: 20px;
-        line-height: 20px;
-      }
+    #data {
+      display: none;
+    }
 
-      hr{
-        margin-top: 20px;
-        margin-bottom: 20px;
-      }
-    </style>
-    <link rel="stylesheet" type="text/css" href="buttons.css">
-    <script src="konami.js"></script>
-    <script src="license.js"></script>
-    <script src="popup.js"></script>
-  </head>
-  <body>
-    <h3 id="title">Ha<span id="titlex">ta</span>thon</h3>
-    <div id="content">
-      <a href="#" id="json" class="button button-rounded button-flat-action">history.json</a>
+    h3 {
+      /*margin-bottom: 0px;*/
+      font-weight: lighter;
+      font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+      color: #777;
+      font-size: 20px;
+      line-height: 20px;
+    }
+
+    hr {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  </style>
+  <link rel="stylesheet" type="text/css" href="buttons.css">
+  <link rel="stylesheet" href="./Css/chatBot.css">
+  <link rel="stylesheet" href="./Css/main.css">
+  <script src="konami.js"></script>
+  <script src="license.js"></script>
+  <script src="popup.js"></script>
+</head>
+
+<body>
+  <h3 id="title">Ha<span id="titlex">ta</span>thon</h3>
+  <div id="content">
+    <a href="#" id="json" class="button button-rounded button-flat-action">history.json</a>
+  </div>
+  <br />
+  <!--chatbot from here-->
+  <div class="chatBot">
+    <div class="chatBotHeading">
+      <label for="chatTextBox" id="chatOpenTrigger" class="">Click to find your search history!</label>
     </div>
-    <br />
+    <hr class="">
+    <div class="chatBody">
+      <div class="chatSession">
+      </div>
+    </div>
+    <form class="chatForm" autocomplete="off">
+      <div class="typingArea">
+        <textarea name="chatInput" id="chatTextBox" class="textArea"
+          onblur="if(!validateMessage()) this.value = 'Type here...'"
+          onfocus="if(!validateMessage()) this.value = ''"></textarea>
+        <button type="submit" class="sendButton" id="sendButton"><img src="./Gfx/send.svg" alt="Send"
+            srcset=""></button>
+      </div>
+      <button type="button" id="chatCloseTrigger">Close Chat!</button>
+    </form>
+  </div>
+  <!-- JavaScripts from native directory -->
+  <script src="./Js/chatBotConversation.js"></script>
+  <script src="./Js/chatBotValidate.js"></script>
+  <script src="./Js/chatBotAnimate.js"></script>
+  <!--     <script src="./Js/chatBotCustom.js"></script> -->
 
-    <div id="data"></div>
-  </body>
+  <!-- JavaScripts from GitHub directory -->
+  <script src="./Js/chatBotLiveCustom.js"></script>
+  <script src="./Js/customSettingsDownload.js"></script>
+
+  <!-- JavaScripts for GitHub buttons -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <div id="data"></div>
+  <!--chatbot ends here-->
+
+  <div id="data"></div>
+</body>
+
 </html>
