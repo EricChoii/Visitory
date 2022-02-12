@@ -6,9 +6,13 @@ var chatBotSendButton           = document.querySelector( ".chatBot .chatForm #s
 var chatBotTextArea             = document.querySelector( ".chatBot .chatForm #chatTextBox" )
 
 // Default values for replies
-var chatBotInitiateMessage      = "Hello! I am ChatBot."
-var chatBotBlankMessageReply    = "Type something!"
-var chatBotReply                = "{{ reply }}" //this part can be changed 
+var chatBotInitiateMessage      = "Hello! I am ChatBot. When did you search it?"
+var chatBotBlankMessageReply    = "Type something!" 
+var chatBotReply                = "empty reply" 
+ 
+var askWhere                  = "Which website was it?"
+var askKeyword                = "Could you think of any keyword related with your search? \n you can provide up to 3 keywords"
+
 
 // Collecting user input
 var inputMessage                = ""
@@ -83,7 +87,11 @@ function createContainer( typeOfContainer ) {
             newReply.setAttribute( "class" , "reply animateChat accentColor" )
             switch( typeOfContainer ){
                 case "reply"        :
-                    newReply.innerHTML  = chatBotReply
+                    if(){
+                        newReply.innerHTML = askWhere
+                    }else if(){
+                        newReply.innerHTML = askKeyword
+                    }
                     break
                 case "initialize"   :
                     newReply.innerHTML  = chatBotInitiateMessage

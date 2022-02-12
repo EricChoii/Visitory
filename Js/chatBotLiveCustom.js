@@ -93,7 +93,7 @@ function applyCustomSettings( settingsImport ){
     // Change the heading styling while typing
     uiChatHeadingInput.addEventListener("keyup", ()=>{
         if( uiChatHeadingInput.value == "" )
-            chatBotCustomHeading = "Any Queries? Ask Me!"
+            chatBotCustomHeading = "Click to find your search history!"
         else
             chatBotCustomHeading = uiChatHeadingInput.value
         uiChatOpenTrigger.innerHTML = chatBotCustomHeading
