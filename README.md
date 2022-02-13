@@ -1,9 +1,11 @@
 
 # *Visitory*
-![image](https://user-images.githubusercontent.com/39285147/153732933-a361f260-1bfe-4899-983d-d69ecd8aa589.png)
-![image](https://user-images.githubusercontent.com/39285147/153732943-ab7eb0b1-9ca8-49ea-95bd-9daaa71d66e5.png)
+![image](https://user-images.githubusercontent.com/39285147/153732933-a361f260-1bfe-4899-983d-d69ecd8aa589.png) 
+![image](https://user-images.githubusercontent.com/39285147/153733087-a0a510dc-2ed8-472b-8d38-ec218c5c0fd5.png)
 
 **Visitory** is an chrome extension that allows user to search forgotten webpage. 
+
+![image](https://user-images.githubusercontent.com/39285147/153733008-561a390e-a828-426c-8339-3e1def7dd5f1.png)
 
 Developed by: **hattathon team**
 
@@ -21,6 +23,7 @@ The following **additional** features are implemented:
 
 * [X] User can **communicate with chatBot** with sets of questions and answers.
 
+![image](https://user-images.githubusercontent.com/39285147/153732943-ab7eb0b1-9ca8-49ea-95bd-9daaa71d66e5.png)
 
 ## Video Walkthrough
 
