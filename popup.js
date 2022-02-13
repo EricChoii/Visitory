@@ -16,26 +16,13 @@ const search = ({
   for (var element of jsn) {
     var keys = Object.keys(element);
 
-    // step 1: WHEN
-    // search data within a certain period of time
-    if (!keys.indexOf('lastVisitTime')) 
+    // leave out all elements without the following keys
+    if (keys.indexOf('lastVisitTime') == -1 || keys.indexOf('url') == -1 || keys.indexOf('title') == -1)
       continue;
 
-    // step 2: WHERE
-    // check if 'url' contains user input (where)
-    if (!keys.indexOf('url')) 
-      continue;
-
-    // step 3: KEYWORD
-    // check if 'title' contains user input (keyword)
-    if (!keys.indexOf('title')) 
-      continue;
-
-    // all pass
     var comma = ", ";
     res = res.concat(comma.concat(JSON.stringify(element)));
   }
-  //append(res);
   res = res.concat(']').replace(/^\[,\s*/, "["); // remove first comma
   data2.appendChild(document.createTextNode(res));
 };
@@ -74,8 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
     download("json");
   };
 
-  rejectButton.onclick = function() {
+  rejectButton.onclick = function () {
     window.alert("We can not process your data without your consent");
   };
 });
-

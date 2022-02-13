@@ -20,14 +20,15 @@ var finalOutput = ""
 var count = 0
 
 // Values to return
-var timeV = document.createElement("div")
-timeV.setAttribute("id", "when")
+var timeV = document.getElementById('when')
+//document.createElement("div")
+//timeV.setAttribute("id", "when")
 
-var whereV = document.createElement("div")
-whereV.setAttribute("id", "where")
+var whereV = document.getElementById('where')
+//whereV.setAttribute("id", "where")
 
-var keyV = document.createElement("div")
-keyV.setAttribute("id", "key")
+var keyV = document.getElementById('key')
+//keyV.setAttribute("id", "key")
 
 // Collecting user input
 var inputMessage = ""
@@ -47,8 +48,7 @@ chatBotSendButton.addEventListener("click", (event) => {
             typeOfContainer = "reply"
             createContainer(typeOfContainer)
         }, 750);
-    }
-    else {
+    } else {
         typeOfContainer = "error";
         createContainer(typeOfContainer)
     }
@@ -93,7 +93,11 @@ function createContainer(typeOfContainer) {
             newMessage.setAttribute("class", "message animateChat")
             newMessage.innerHTML = inputMessage
             lastMessageContainer.appendChild(newMessage)
-            lastMessageContainer.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" })
+            lastMessageContainer.scrollIntoView({
+                behavior: "smooth",
+                block: "end",
+                inline: "nearest"
+            })
             break
         case "reply":
             var allReplyContainers = document.querySelectorAll("#replyContainer")
@@ -120,8 +124,10 @@ function createContainer(typeOfContainer) {
                             break
                         case 3:
                             // keyword + call back end function
-                            keyV = keyWordArray(inputMessage)
-                            newReply.innerHTML = document.getElementById("data2").innerText // @@@@@
+                            //keyV = keyWordArray(inputMessage)
+                            keyV = keyWordArray(inputMessage);
+                            finalRes()
+                            newReply.innerHTML = document.getElementById('data2').innerText
                             // newReply.innerHTML = keyV[1] //must be changed with the sorted list
                             break
                         default:
@@ -142,7 +148,11 @@ function createContainer(typeOfContainer) {
 
             setTimeout(function () {
                 lastReplyContainer.appendChild(newReply)
-                lastReplyContainer.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" })
+                lastReplyContainer.scrollIntoView({
+                    behavior: "smooth",
+                    block: "end",
+                    inline: "nearest"
+                })
             }, 10)
             break
         default:
@@ -157,57 +167,34 @@ function initiateConversation() {
 }
 
 function finalRes() {
-    // keyV whereV whenV
     var jsn = JSON.parse(document.getElementById("data2").innerText);
     var res = "[";
     for (var element of jsn) {
-        var keys = Object.keys(element);
+        // time range
+        if (element.lastVisitTime > timeV)
+            break;
 
-        // step 1: WHEN
-        // search data within a certain period of time
-        if (keys.indexOf('lastVisitTime')) {
-            // id: when
-            var value = element["lasVisitTime"];
-            if (value < document.getElementById("when").innerText)
+        // website
+        var url = element.url.split(/&|\?/);
+        if (url[0].indexOf(whereV) == -1)
+            continue; // 'where' not found
+
+        // keywords
+        var flag = false;
+        for (var e of keyV) {
+            if (element.title.indexOf(e) != -1) {
+                flag = true;
                 break;
-        } else
-            continue;
-
-        // step 2: WHERE
-        // check if 'url' contains user input (where)
-        if (keys.indexOf('url')) {
-            var url = element.url.split(/&|\?/);
-            if (!url[0].indexOf(document.getElementById('where').innerText))
-                continue; // 'where' not found
-            
-            var comma = ", ";
-            res = res.concat(comma.concat(JSON.stringify(url)));
-        } else
-            continue;
-
-        // step 3: KEYWORD
-        // check if 'title' contains user input (keyword)
-        if (keys.indexOf('title')) {
-            var keywords = document.getElementById('key').innerText;
-            var flag = new Boolean(0);
-
-            for (var e of keywords) {
-                if (!element.title.indexOf(e)) {
-                    flag = new Boolean(true);
-                    break;
-                }
             }
-
-            if (flag)
-                continue;
-        } else
+        }
+        if (!flag)
             continue;
 
-        // all pass
-        // var comma = ", ";
-        // res = res.concat(comma.concat(JSON.stringify(element)));
+        var str = '{"title":"' + element.title + '", "url":"' + element.url + '"}';            
+        var comma = ", ";
+        res = res.concat(comma.concat(str));
     }
 
     res = res.concat(']').replace(/^\[,\s*/, "["); // remove first comma
-    data2.appendChild(document.createTextNode(res));
+    document.getElementById("data2").innerText = res;
 }

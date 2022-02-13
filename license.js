@@ -2,15 +2,15 @@ var CWS_LICENSE_API_URL = 'https://www.googleapis.com/chromewebstore/v1.1/userli
 
 function getLicense(cb) {
   console.log("getting license");
-  try{
-    xhrWithAuth('GET', CWS_LICENSE_API_URL + chrome.runtime.id, true, function(error, status, res){
-      if(status === 200){
+  try {
+    xhrWithAuth('GET', CWS_LICENSE_API_URL + chrome.runtime.id, true, function (error, status, res) {
+      if (status === 200) {
         cb(res, null);
-      }else{
+      } else {
         cb(res, "Error reading license server: " + response);
       }
     });
-  }catch(e){
+  } catch (e) {
     cb(null, "Error getting authenticated XHR request: " + e);
   }
 }
@@ -24,7 +24,9 @@ function xhrWithAuth(method, url, interactive, callback) {
   function getToken() {
     console.log("Getting auth token...");
     console.log("Calling chrome.identity.getAuthToken", interactive);
-    chrome.identity.getAuthToken({ interactive: interactive }, function(token) {
+    chrome.identity.getAuthToken({
+      interactive: interactive
+    }, function (token) {
       if (chrome.runtime.lastError) {
         callback(chrome.runtime.lastError);
         return;
@@ -48,7 +50,9 @@ function xhrWithAuth(method, url, interactive, callback) {
     console.log("Authenticated XHR completed.");
     if (this.status == 401 && retry) {
       retry = false;
-      chrome.identity.removeCachedAuthToken({ token: access_token }, getToken);
+      chrome.identity.removeCachedAuthToken({
+        token: access_token
+      }, getToken);
     } else {
       callback(null, this.status, JSON.parse(this.response));
     }
