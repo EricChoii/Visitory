@@ -2,6 +2,8 @@
 # *Visitory*
 
 **Visitory** is an chrome extension that allows user to search forgotten webpage. 
+![image](https://user-images.githubusercontent.com/39285147/153732933-a361f260-1bfe-4899-983d-d69ecd8aa589.png)
+![image](https://user-images.githubusercontent.com/39285147/153732943-ab7eb0b1-9ca8-49ea-95bd-9daaa71d66e5.png)
 
 Developed by: **hattathon team**
 
