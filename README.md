@@ -35,7 +35,14 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-N/A
+Still working on adding more features..
+- room for improvement in UI & UX
+- more search options
+
+### Output (Curr Version):
+
+![image](https://user-images.githubusercontent.com/39285147/153733166-fcf55942-4bb0-4525-beb1-c345cb512ba3.png)
+
 
 ## License
 
