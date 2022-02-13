@@ -3,7 +3,7 @@
 ![image](https://user-images.githubusercontent.com/39285147/153732933-a361f260-1bfe-4899-983d-d69ecd8aa589.png) 
 ![image](https://user-images.githubusercontent.com/39285147/153733087-a0a510dc-2ed8-472b-8d38-ec218c5c0fd5.png)
 
-**Visitory** is an chrome extension that allows user to search forgotten webpage. 
+**Visitory** is a chrome extension that allows user to search forgotten webpage. 
 
 ![image](https://user-images.githubusercontent.com/39285147/153733008-561a390e-a828-426c-8339-3e1def7dd5f1.png)
 
